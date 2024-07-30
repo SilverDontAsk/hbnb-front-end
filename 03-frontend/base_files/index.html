@@ -8,10 +8,16 @@
 </head>
 <body>
     <header>
+        <img src="logo.png" class="logo" alt="Logo">
+        <a href="login.html" class="login-button">Login</a>
         <nav>
-            <a href="login.html" id="login-link">Login</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
         </nav>
     </header>
+    
     <main>
         <section id="filter">
             <label for="country-filter">Filter by Country:</label>
@@ -19,10 +25,24 @@
                 <!-- Options will be populated dynamically -->
             </select>
         </section>
+        
         <section id="places-list">
-            <!-- List of places will be populated dynamically -->
+            <!-- Example place card -->
+            <div class="place-card">
+                <img src="path/to/image.jpg" class="place-image" alt="Place Image">
+                <h2>Place Name</h2>
+                <p>Price per night: $100</p>
+                <p>Location: City, Country</p>
+                <button class="details-button">View Details</button>
+            </div>
+            <!-- Additional places will be populated dynamically -->
         </section>
     </main>
+    
+    <footer>
+        <p>All rights reserved</p>
+    </footer>
+    
     <script src="scripts.js"></script>
 </body>
 </html>
