@@ -1,5 +1,5 @@
 from uuid import uuid4
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_cors import CORS
 import json
@@ -20,6 +20,22 @@ with open('data/places.json') as f:
 # In-memory storage for new reviews
 new_reviews = []
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/login')
+def login_page():
+    return render_template('login.html')
+
+@app.route('/place')
+def place_page():
+    return render_template('place.html')
+
+@app.route('/add_review')
+def add_review_page():
+    return render_template('add_review.html')
+
 @app.route('/login', methods=['POST'])
 def login():
     email = request.json.get('email')
@@ -33,6 +49,12 @@ def login():
 
     access_token = create_access_token(identity=user['id'])
     return jsonify(access_token=access_token)
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    response = jsonify({"msg": "Logged out"})
+    response.delete_cookie('token')
+    return redirect(url_for('login_page'))
 
 @app.route('/places', methods=['GET'])
 def get_places():

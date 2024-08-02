@@ -1,0 +1,289 @@
+/* 
+  This is a SAMPLE File to get you started. Follow the instructions on the project to complete the tasks. 
+  You'll probably need to override some of theese styles.
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.house-introduction {
+    text-align: center;
+    margin: 10px;
+    font-size: 40px;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: chocolate;
+    color: chocolate;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.nav-login {
+    padding: 10px 20px;
+    color: black;
+}
+
+main {
+    padding: 2rem;
+}
+
+.logo {
+    height: 40px
+}
+
+
+.login-button, .logout-button {
+    margin-left: auto;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+footer {
+    background-color: chocolate;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.place-details {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.add-review {
+    margin: 0 auto;
+}
+
+.review-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.review-form button {
+    padding: 10px 20px;
+    background-color: chocolate;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.review-form button:hover {
+    background-color: rgb(239, 148, 82);
+}
+
+
+.index-place {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#filter {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#filter label,
+#filter select {
+    margin: 0 2px;
+}
+
+#country-filter {
+    width: 75px;
+    padding: 1px;
+    border: rgb(77, 72, 72);
+}
+
+.place-image {
+    height: 120px;
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.place-card {
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 275px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.place-card h2 {
+    margin: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.place-card p {
+    margin: 10px 0;
+}
+
+.details-button {
+    background-color: chocolate;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-style: none;
+    margin: 15px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.details-button:hover {
+    background-color: rgb(178, 74, 0);
+    color: black;
+}
+
+.place-details {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.place-details p {
+    margin-bottom: 10px;
+}
+
+.place-details p span.label {
+    font-weight: bold;
+}
+
+.place-details p span.value {
+    margin-left: 5px;
+}
+
+.place-info {
+    margin: 10px 0;
+}
+
+.place-image-large {
+    width: 500px;
+}
+
+.review-card {
+    border: 1px solid #ddd; /* Changed from lightgray to match place-details */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin: 15px;
+}
+
+.review-card p {
+    margin: 15px;
+}
+
+.reviews h2 {
+    margin: 10px;
+}
+
+.Reviewer {
+    font-weight: bold;
+}
+
+.rating {
+    margin: 15px;
+}
+
+.rating span {
+    margin-right: 3px;
+}
+
+.rating-text {
+    color: #333;
+}
+
+.login-main {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Restricts the width of the form */
+}
+
+.login-form h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.login-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.login-form button {
+    padding: 10px 20px;
+    background-color: chocolate;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-form button:hover {
+    background-color: rgb(178, 74, 0);
+}
