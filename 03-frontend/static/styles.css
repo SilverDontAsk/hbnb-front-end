@@ -32,18 +32,15 @@ header {
 }
 
 nav a {
-    color: #fff;
     text-decoration: none;
     margin-left: 1rem;
-}
-
-.nav-login {
     padding: 10px 20px;
     color: black;
+    
 }
 
 main {
-    padding: 2rem;
+    padding: 20px;
 }
 
 .logo {
@@ -51,7 +48,7 @@ main {
 }
 
 
-.login-button, .logout-button {
+.login-button {
     margin-left: auto;
     color: black;
     border-radius: 5px;
@@ -68,13 +65,15 @@ footer {
     width: 100%;
 }
 
+
 .place-details {
     border: 1px solid #ddd;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin: 20px;
+    font-weight: bold;
 }
 
 .add-review {
@@ -175,35 +174,6 @@ footer {
 .details-button:hover {
     background-color: rgb(178, 74, 0);
     color: black;
-}
-
-.place-details {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.place-details p {
-    margin-bottom: 10px;
-}
-
-.place-details p span.label {
-    font-weight: bold;
-}
-
-.place-details p span.value {
-    margin-left: 5px;
-}
-
-.place-info {
-    margin: 10px 0;
-}
-
-.place-image-large {
-    width: 500px;
 }
 
 .review-card {

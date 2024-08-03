@@ -33,13 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Check if on place details page
     if (window.location.pathname.includes('place.html')) {
         const placeId = getPlaceIdFromURL();
         checkAuthenticationForPlaceDetails(placeId);
     }
 
-    // Add event listener for the review form
     if (window.location.pathname.includes('add_review.html')) {
         const reviewForm = document.getElementById('review-form');
         const token = checkAuthentication();
@@ -75,7 +73,6 @@ function handleResponse(response) {
     if (response.ok) {
         alert('Review submitted successfully!');
         document.getElementById('review-form').reset();
-        // Optionally, redirect to the place details page to see the new review
         const placeId = getPlaceIdFromURL();
         window.location.href = `place.html?place_id=${placeId}`;
     } else {
@@ -284,13 +281,9 @@ function displayPlaceDetails(place) {
         reviewComment.textContent = `Comment: ${review.comment}`;
         reviewCard.appendChild(reviewComment);
 
-        const reviewUser = document.createElement('p');
-        reviewUser.textContent = `User: ${review.user_name}`;
-        reviewCard.appendChild(reviewUser);
-
-        const reviewRating = document.createElement('p');
-        reviewRating.textContent = `Rating: ${review.rating}/5`;
-        reviewCard.appendChild(reviewRating);
+        const reviewAuthor = document.createElement('p');
+        reviewAuthor.textContent = `Author: ${review.author}`;
+        reviewCard.appendChild(reviewAuthor);
 
         reviewsSection.appendChild(reviewCard);
     });

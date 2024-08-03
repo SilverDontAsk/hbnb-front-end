@@ -24,15 +24,15 @@ new_reviews = []
 def index():
     return render_template('index.html')
 
-@app.route('/login')
+@app.route('/login.html')
 def login_page():
     return render_template('login.html')
 
-@app.route('/place')
+@app.route('/place.html')
 def place_page():
     return render_template('place.html')
 
-@app.route('/add_review')
+@app.route('/add_review.html')
 def add_review_page():
     return render_template('add_review.html')
 
