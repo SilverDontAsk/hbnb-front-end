@@ -2,6 +2,7 @@
     {
         "id": "place-1",
         "host_id": "user-1",
+        "name": "Lovely Apartment",
         "host_name": "John Doe",
         "description": "A lovely place to stay.",
         "price_per_night": 100.0,
@@ -31,6 +32,7 @@
     {
         "id": "place-2",
         "host_id": "user-2",
+        "name": "Cozy Cottage",
         "host_name": "Jane Smith",
         "description": "A cozy cottage in the countryside.",
         "price_per_night": 80.0,

@@ -40,28 +40,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.location.pathname.includes('add_review.html')) {
         const reviewForm = document.getElementById('review-form');
-        const token = checkAuthentication();
-        const placeId = getPlaceIdFromURL();
 
         if (reviewForm) {
             reviewForm.addEventListener('submit', async (event) => {
                 event.preventDefault();
-                const reviewText = document.getElementById('review-text').value;
-                await submitReview(token, placeId, reviewText);
+
+                const token = getToken();
+                const placeId = getPlaceIdFromURL();
+                const reviewText = document.getElementById('review').value;
+                const rating = document.getElementById('rating').value;
+
+                await submitReview(token, placeId, reviewText, rating);
             });
         }
     }
 });
 
-async function submitReview(token, placeId, reviewText) {
+async function submitReview(token, placeId, reviewText, rating) {
     try {
-        const response = await fetch(`http://127.0.0.1:5000/api/reviews`, {
+        const response = await fetch(`http://127.0.0.1:5000/places/${placeId}/reviews`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ place_id: placeId, text: reviewText })
+            body: JSON.stringify({ review: reviewText, rating: parseInt(rating) })
         });
         handleResponse(response);
     } catch (error) {
@@ -78,6 +81,10 @@ function handleResponse(response) {
     } else {
         alert('Failed to submit review');
     }
+}
+
+function getToken() {
+    return localStorage.getItem('token') || '';
 }
 
 function getPlaceIdFromURL() {
@@ -244,23 +251,23 @@ function displayPlaceDetails(place) {
     placeDetailsSection.appendChild(nameElement);
 
     const hostElement = document.createElement('p');
-    hostElement.textContent = `Host: ${place.host_name}`;
+    hostElement.innerHTML = `<strong>Host:</strong> ${place.host_name}`;
     placeDetailsSection.appendChild(hostElement);
 
     const priceElement = document.createElement('p');
-    priceElement.textContent = `Price per night: $${place.price_per_night}`;
+    priceElement.innerHTML = `<strong>Price per night:</strong> $${place.price_per_night}`;
     placeDetailsSection.appendChild(priceElement);
 
     const locationElement = document.createElement('p');
-    locationElement.textContent = `Location: ${place.city_name}, ${place.country_name}`;
+    locationElement.innerHTML = `<strong>Location:</strong> ${place.city_name}, ${place.country_name}`;
     placeDetailsSection.appendChild(locationElement);
 
     const descriptionElement = document.createElement('p');
-    descriptionElement.textContent = `Description: ${place.description}`;
+    descriptionElement.innerHTML = `<strong>Description:</strong> ${place.description}`;
     placeDetailsSection.appendChild(descriptionElement);
 
     const amenitiesElement = document.createElement('p');
-    amenitiesElement.textContent = `Amenities: ${place.amenities.join(', ')}`;
+    amenitiesElement.innerHTML = `<strong>Amenities:</strong> ${place.amenities.join(', ')}`;
     placeDetailsSection.appendChild(amenitiesElement);
 
     if (place.images && place.images.length > 0) {
@@ -277,14 +284,31 @@ function displayPlaceDetails(place) {
         const reviewCard = document.createElement('div');
         reviewCard.className = 'review-card';
 
+        const reviewAuthor = document.createElement('p');
+        reviewAuthor.innerHTML = `<strong>${review.user_name}:</strong>`;
+        reviewCard.appendChild(reviewAuthor);
+
         const reviewComment = document.createElement('p');
         reviewComment.textContent = `Comment: ${review.comment}`;
         reviewCard.appendChild(reviewComment);
 
-        const reviewAuthor = document.createElement('p');
-        reviewAuthor.textContent = `Author: ${review.author}`;
-        reviewCard.appendChild(reviewAuthor);
+        const reviewRating = document.createElement('p');
+        reviewRating.textContent = `Rating: ${getStars(review.rating)}`;
+        reviewCard.appendChild(reviewRating);
 
         reviewsSection.appendChild(reviewCard);
     });
+}
+
+function getStars(rating) {
+    const fullStar = '★';
+    const emptyStar = '☆';
+    const maxStars = 5;
+    let stars = '';
+
+    for (let i = 1; i <= maxStars; i++) {
+        stars += i <= rating ? fullStar : emptyStar;
+    }
+
+    return stars;
 }
